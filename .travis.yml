@@ -11,7 +11,7 @@ deploy:
   provider: releases
   api_key:
     secure: N90Kj/9H2G3ACeYTBUXMvwuZ2SpRMkHwJyAp1zHduqnIhZHNxrX6AivTQtFmRD80z9RbU6pEUQMLniN5GO6+vtSWzZzkky10eW6teqoRHS2tpEbIO1efEYRxdcwGZGGVxvXrFUX9Z6Tzy/nF6d3qbJbqLUG4elO8TwHbgcBWxLESfSbeTZZMPRdPc0JFHeM3F/sen3NPYiXWUiaqI5VcagBYMnr2addvTepcNztWqQhDsW2E3jzy6z5o86vECPUhhtUjfw2QZs4kBXfkrf8JIt/zroXM0/8PwnwoasDsKnc2LhmA+ORzMQpcOx6IuHXMPG2Gf29RsqjnyZ9TFjWaKJA75XH2Z/FeHwRHx8msVoJC9Djjl420G6ECmWq6j1Lt33U4ZFPdUDYCzczhbYuwg4xsR/oYcq4qY7/G/ZFGtreZnGkxm0HzULGBy0cKF2TGIcZJTUmDo3OVRqzcP9oPeXbHq+ykTKNPvxECKo4wSUqHxMr5TM/a3zqAVfGBchdype1iDQJk1zz4WRuwobQStO3sdLDK2FwQkkISey/J7Cx0gPycqIkAn9L627sixjIsLKhj7D0qtnrmdHYwbitNi/oYmoIL0NLbMy1FvhHG0rGahLCbg3Sgqd31WJMiQl29uLEuMbRIW+qavJyQK3ivIofAfTGJoRW64+AW/LmFxL0=
-  file: releng\com.github.ugrave.tools.site\target\com.github.ugrave.tools.zip
+  file: releng\com.github.ugrave.tools.site\target\com.github.ugrave.tools.site.zip
   skip_cleanup: true
   on:
     tags: true
