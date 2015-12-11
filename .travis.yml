@@ -6,7 +6,7 @@ cache:
 script:
 - mvn clean verify
 before_deploy:
-- cp .\releng\com.github.ugrave.tools.site\target\com.github.ugrave.tools.site-*.zip .\releng\com.github.ugrave.tools.site\target\com.github.ugrave.tools.zip
+- cp ./releng/com.github.ugrave.tools.site/target/com.github.ugrave.tools.site-*.zip ./releng/com.github.ugrave.tools.site/target/com.github.ugrave.tools.site.zip
 deploy:
   provider: releases
   api_key:
