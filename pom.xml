@@ -21,6 +21,12 @@
 		<module>releng/com.github.ugrave.tools.site</module>
 	</modules>
 
+	<scm>
+		<connection>scm:git:git@github.com:ugrave/com.github.ugrave.tools.git</connection>
+		<url>scm:git:git@github.com:ugrave/com.github.ugrave.tools.git</url>
+		<developerConnection>scm:git:git@github.com:ugrave/com.github.ugrave.tools.git</developerConnection>
+	</scm>
+	
 	<profiles>
 		<profile>
 			<id>e45</id>
@@ -48,10 +54,22 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
+
+			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-versions-plugin</artifactId>
+				<version>${tycho-version}</version>
 			</plugin>
 
 			<plugin>
