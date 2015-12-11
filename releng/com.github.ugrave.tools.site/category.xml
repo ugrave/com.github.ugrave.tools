@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.github.ugrave.tools.ws.refresh.feature_1.0.0.qualifier.jar" id="com.github.ugrave.tools.ws.refresh.feature" version="1.0.0.qualifier">
+      <category name="com.github.ugrave.tools"/>
+   </feature>
+   <category-def name="com.github.ugrave.tools" label="eclipse Tools"/>
+</site>
