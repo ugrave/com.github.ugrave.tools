@@ -14,18 +14,4 @@
 
 	<packaging>eclipse-plugin</packaging>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<configuration>
-					<resolver>p2</resolver>
-					<pomDependencies>ignore</pomDependencies>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
-
 </project>
