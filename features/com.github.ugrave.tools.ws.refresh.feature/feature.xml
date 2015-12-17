@@ -3,7 +3,8 @@
       id="com.github.ugrave.tools.ws.refresh.feature"
       label="%featureName"
       version="1.0.0.qualifier"
-      provider-name="%providerName">
+      provider-name="%providerName"
+      license-feature="org.eclipse.platform">
 
    <description>
       %description
@@ -16,6 +17,11 @@
    <license url="%licenseUrl">
       %license
    </license>
+
+   <url>
+      <update label="Eclipse Tools Update Site" url="https://dl.bintray.com/ugrave/com.github.ugrave"/>
+      <discovery label="Eclipse Tools Project Site" url="https://github.com/ugrave/com.github.ugrave.tools/"/>
+   </url>
 
    <plugin
          id="com.github.ugrave.tools.ws.refresh"
