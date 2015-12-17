@@ -3,8 +3,7 @@
       id="com.github.ugrave.tools.ws.refresh.feature"
       label="%featureName"
       version="1.0.0.qualifier"
-      provider-name="%providerName"
-      license-feature="org.eclipse.platform">
+      provider-name="%providerName">
 
    <description>
       %description
