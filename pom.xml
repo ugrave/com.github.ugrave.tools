@@ -11,17 +11,20 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
-  		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.target>1.7</maven.compiler.target>
 
 		<tycho.version>0.24.0</tycho.version>
 		<tycho-extras.version>0.24.0</tycho-extras.version>
 		<tycho.scmUrl>scm:git:git@github.com:ugrave/com.github.ugrave.tools.git</tycho.scmUrl>
+
+		<target.platform>e45</target.platform>
 	</properties>
 
 	<modules>
 		<module>features/com.github.ugrave.tools.ws.refresh.feature</module>
 		<module>bundles/com.github.ugrave.tools.ws.refresh</module>
 		<module>releng/com.github.ugrave.tools.site</module>
+		<module>releng/target-platform-e45</module>
 	</modules>
 
 	<scm>
@@ -34,6 +37,11 @@
 		<url>https://github.com/ugrave/com.github.ugrave.tools/issues</url>
 		<system>GitHub</system>
 	</issueManagement>
+
+	<ciManagement>
+		<system>Travis</system>
+		<url>https://travis-ci.org/ugrave/com.github.ugrave.tools</url>
+	</ciManagement>
 
 	<licenses>
 		<license>
@@ -51,54 +59,14 @@
 		</license>
 	</licenses>
 
-	<profiles>
-		<profile>
-			<id>e45</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<p2.repository.name>Eclipse 4.5</p2.repository.name>
-			</properties>
-			<repositories>
-				<repository>
-					<id>platform-e45</id>
-					<layout>p2</layout>
-					<url>http://download.eclipse.org/eclipse/updates/4.5/</url>
-				</repository>
-				<repository>
-					<id>mars</id>
-					<layout>p2</layout>
-					<url>http://download.eclipse.org/releases/mars/</url>
-				</repository>
-			</repositories>
-		</profile>
-	</profiles>
-
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5.3</version>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<configuration>
-					<resolver>p2</resolver>
-				</configuration>
-			</plugin>
-		</plugins>
-
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
@@ -108,69 +76,89 @@
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-packaging-plugin</artifactId>
 					<version>${tycho.version}</version>
-					<dependencies>
-						<dependency>
-							<groupId>org.eclipse.tycho.extras</groupId>
-							<artifactId>tycho-buildtimestamp-jgit</artifactId>
-							<version>${tycho-extras.version}</version>
-						</dependency>
-						<dependency>
-	    					<groupId>org.eclipse.tycho.extras</groupId>
-	    					<artifactId>tycho-sourceref-jgit</artifactId>
-	    					<version>${tycho-extras.version}</version>
-	  					</dependency>
-					</dependencies>
-					<configuration>
-						<timestampProvider>jgit</timestampProvider>
-						<jgit.ignore>pom.xml</jgit.ignore>
-						<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
-						<archive>
-							<addMavenDescriptor>false</addMavenDescriptor>
-						</archive>
-						<sourceReferences>
-							<generate>true</generate>
-						</sourceReferences>
-					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>target-platform-configuration</artifactId>
 					<version>${tycho.version}</version>
-					<configuration>
-						<resolver>p2</resolver>
-						<pomDependencies>consider</pomDependencies>
-						<ignoreTychoRepositories>true</ignoreTychoRepositories>
-						<environments>
-							<environment>
-								<os>linux</os>
-								<ws>gtk</ws>
-								<arch>x86</arch>
-							</environment>
-							<environment>
-								<os>linux</os>
-								<ws>gtk</ws>
-								<arch>x86_64</arch>
-							</environment>
-							<environment>
-								<os>win32</os>
-								<ws>win32</ws>
-								<arch>x86</arch>
-							</environment>
-							<environment>
-								<os>win32</os>
-								<ws>win32</ws>
-								<arch>x86_64</arch>
-							</environment>
-							<environment>
-								<os>macosx</os>
-								<ws>cocoa</ws>
-								<arch>x86_64</arch>
-							</environment>
-						</environments>
-					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-buildtimestamp-jgit</artifactId>
+						<version>${tycho-extras.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-sourceref-jgit</artifactId>
+						<version>${tycho-extras.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<timestampProvider>jgit</timestampProvider>
+					<jgit.ignore>pom.xml</jgit.ignore>
+					<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+					<sourceReferences>
+						<generate>true</generate>
+					</sourceReferences>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>target-platform-${target.platform}</artifactId>
+							<version>${project.version}</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>
