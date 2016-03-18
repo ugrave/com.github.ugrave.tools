@@ -22,6 +22,12 @@
       <discovery label="Eclipse Tools Project Site" url="https://github.com/ugrave/com.github.ugrave.tools/"/>
    </url>
 
+   <requires>
+      <import plugin="org.eclipse.core.runtime" version="3.11.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui"/>
+   </requires>
+
    <plugin
          id="com.github.ugrave.tools.ws.refresh"
          download-size="0"
