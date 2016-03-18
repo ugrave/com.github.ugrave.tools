@@ -1,0 +1,8 @@
+* text=auto
+
+*.java text
+*.xml text
+*.txt text
+*.md text
+
+*.java diff=java
