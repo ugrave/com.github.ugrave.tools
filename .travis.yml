@@ -7,12 +7,12 @@ env:
   global:
     - DISPLAY=:99.0
   matrix:
-    - "target.platform=e45"
-    - "target.platform=e46"
+    - TARGET_PLATFORM=e45
+    - TARGET_PLATFORM=e46
 install: true
 before_script:
   - sh -e /etc/init.d/xvfb start - sleep 10
-script: mvn clean verify
+script: mvn clean verify -Dtarget.platform=${TARGET_PLATFORM}
 deploy:
   provider: releases
   api_key:
