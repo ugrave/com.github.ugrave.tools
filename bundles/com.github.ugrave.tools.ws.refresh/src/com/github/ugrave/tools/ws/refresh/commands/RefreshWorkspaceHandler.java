@@ -18,7 +18,7 @@ public class RefreshWorkspaceHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchWindow activeWorkbenchWindow = HandlerUtil.getActiveWorkbenchWindow(event);
+		IWorkbenchWindow activeWorkbenchWindow = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		RefreshAction refresh = new RefreshAction(activeWorkbenchWindow);
 		refresh.refreshAll();
 		return null;

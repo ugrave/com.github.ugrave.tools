@@ -6,4 +6,4 @@ Eclipse Tools
 ### Minimum Requirements
 
 - Java 7
-- Eclipse 4.5 (Mars)
+- Eclipse 4.5 (Mars), 4.6 (Neon)

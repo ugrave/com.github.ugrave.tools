@@ -24,7 +24,9 @@
 		<module>features/com.github.ugrave.tools.ws.refresh.feature</module>
 		<module>bundles/com.github.ugrave.tools.ws.refresh</module>
 		<module>releng/com.github.ugrave.tools.site</module>
+		<module>tests/com.github.ugrave.tools.ws.refresh.tests</module>
 		<module>releng/target-platform-e45</module>
+		<module>releng/target-platform-e46</module>
 	</modules>
 
 	<scm>
