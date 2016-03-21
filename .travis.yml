@@ -27,4 +27,4 @@ deploy:
 notifications:
   webhooks:
     - https://buildtimetrend.herokuapp.com/travis
-after_failure: cat ${TRAVIS_BUILD_DIR}/tests/com.github.ugrave.tools.ws.refresh.tests/target/work/data/.metadata/*.log
+after_failure: cat ${TRAVIS_BUILD_DIR}/tests/com.github.ugrave.tools.ws.refresh.tests/target/work/configuration/*.log
