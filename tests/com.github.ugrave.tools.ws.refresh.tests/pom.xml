@@ -28,6 +28,7 @@
 						</dependency>
 					</dependencies>
 					<useUIHarness>true</useUIHarness>
+					<useUIThread>true</useUIThread>
 				</configuration>
 			</plugin>
 		</plugins>
