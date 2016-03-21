@@ -7,8 +7,8 @@ env:
   global:
     - DISPLAY=:99.0
   matrix:
-    - target.platform=e45
-    - target.platform=e46
+    - "target.platform=e45"
+    - "target.platform=e46"
 install: true
 before_script:
   - sh -e /etc/init.d/xvfb start - sleep 10
