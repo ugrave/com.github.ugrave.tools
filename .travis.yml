@@ -10,7 +10,8 @@ env:
     - TARGET_PLATFORM=e45
     - TARGET_PLATFORM=e46
 before_install:
-  - sh -e /etc/init.d/xvfb start - sleep 10
+  - sh -e /etc/init.d/xvfb start
+  - sleep 5
 install: true
 script: mvn clean verify -B -Dtarget.platform=${TARGET_PLATFORM}
 deploy:
