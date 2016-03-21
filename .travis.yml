@@ -9,9 +9,9 @@ env:
   matrix:
     - TARGET_PLATFORM=e45
     - TARGET_PLATFORM=e46
-install: true
-before_script:
+before_install:
   - sh -e /etc/init.d/xvfb start - sleep 10
+install: true
 script: mvn clean verify -Dtarget.platform=${TARGET_PLATFORM}
 deploy:
   provider: releases
