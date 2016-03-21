@@ -12,7 +12,7 @@ env:
 before_install:
   - sh -e /etc/init.d/xvfb start - sleep 10
 install: true
-script: mvn clean verify -Dtarget.platform=${TARGET_PLATFORM}
+script: mvn clean verify -B -Dtarget.platform=${TARGET_PLATFORM}
 deploy:
   provider: releases
   api_key:
