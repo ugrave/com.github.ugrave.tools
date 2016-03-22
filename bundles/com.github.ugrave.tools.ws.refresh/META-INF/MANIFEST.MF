@@ -4,7 +4,7 @@ Bundle-Name: Workspace Refresh
 Bundle-SymbolicName: com.github.ugrave.tools.ws.refresh;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Ulrich Grave
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.ide,
  org.eclipse.ui
