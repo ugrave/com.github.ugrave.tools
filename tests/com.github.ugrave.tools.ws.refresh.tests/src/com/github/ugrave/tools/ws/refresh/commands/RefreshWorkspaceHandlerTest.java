@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.After;
@@ -41,14 +42,16 @@ public class RefreshWorkspaceHandlerTest {
 		project_1 = projects.createProject("Test 1", FileDescription.newFile("Test.txt").content("Test 123"));
 		project_2 = projects.createProject("Test 2");
 
-		IWorkbench workbench = PlatformUI.getWorkbench();
-		handlerService = workbench.getService(IHandlerService.class);
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		handlerService = window.getService(IHandlerService.class);
 
 	}
 
 	@After
 	public void shoutdown() {
 		handlerService = null;
+		project_1 = null;
+		project_2 = null;
 	}
 
 	@Test
