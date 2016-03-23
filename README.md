@@ -7,3 +7,8 @@ Eclipse Tools
 
 - Java 7
 - Eclipse 4.5 (Mars), 4.6 (Neon)
+
+### Installation
+Drag the install icon to your running Eclipse workspace to install Eclipse Tools
+
+<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=2791562" class="drag" title="Drag to your running Eclipse workspace to install Eclipse Tools"><img class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse workspace to install Eclipse Tools" /></a>
