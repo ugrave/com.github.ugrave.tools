@@ -63,7 +63,7 @@ public class RefreshWorkspaceHandlerTest {
 		Assert.assertTrue(newFile_2.createNewFile());
 
 		IFile ws_file_1 = project_1.getFile(FILE_NAME);
-		IFile ws_file_2 = project_1.getFile(FILE_NAME);
+		IFile ws_file_2 = project_2.getFile(FILE_NAME);
 
 		Assert.assertFalse(ws_file_1.exists());
 		Assert.assertFalse(ws_file_2.exists());
